@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d6ed9ca-d572-43c3-9d0a-981a847a1a3d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="7d6ed9ca-d572-43c3-9d0a-981a847a1a3d" name="Changes" comment="Update the `settings.py` file in your project directory to &#10;include the `rest_framework` and `transcription` apps:&#10;&#10;```python&#10;INSTALLED_APPS = [&#10;    ...&#10;    'rest_framework',&#10;    'transcription',&#10;]&#10;```" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,13 +14,16 @@
   "associatedIndex": 4
 }]]></component>
   <component name="ProjectId" id="2en0VC2raMmnn6skr7MxjlLdPp9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master"
   }
@@ -67,17 +68,29 @@
       <option name="presentableId" value="Default" />
       <updated>1712525055767</updated>
     </task>
+    <task id="LOCAL-00001" summary="Set up a new Django project and app:&#10;```bash&#10;pip install django djangorestframework openai-whisper&#10;django-admin startproject whisper_api&#10;cd whisper_api&#10;python manage.py startapp transcription&#10;```">
+      <option name="closed" value="true" />
+      <created>1712525285382</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712525285382</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update the `settings.py` file in your project directory to &#10;include the `rest_framework` and `transcription` apps:&#10;&#10;```python&#10;INSTALLED_APPS = [&#10;    ...&#10;    'rest_framework',&#10;    'transcription',&#10;]&#10;```">
+      <option name="closed" value="true" />
+      <created>1712525362627</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712525362627</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Set up a new Django project and app:&#10;```bash&#10;pip install django djangorestframework openai-whisper&#10;django-admin startproject whisper_api&#10;cd whisper_api&#10;python manage.py startapp transcription&#10;```" />
+    <MESSAGE value="Update the `settings.py` file in your project directory to &#10;include the `rest_framework` and `transcription` apps:&#10;&#10;```python&#10;INSTALLED_APPS = [&#10;    ...&#10;    'rest_framework',&#10;    'transcription',&#10;]&#10;```" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the `settings.py` file in your project directory to &#10;include the `rest_framework` and `transcription` apps:&#10;&#10;```python&#10;INSTALLED_APPS = [&#10;    ...&#10;    'rest_framework',&#10;    'transcription',&#10;]&#10;```" />
   </component>
 </project>
