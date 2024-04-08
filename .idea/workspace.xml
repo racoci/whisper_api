@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d6ed9ca-d572-43c3-9d0a-981a847a1a3d" name="Changes" comment="Update the `settings.py` file in your project directory to &#10;include the `rest_framework` and `transcription` apps:&#10;&#10;```python&#10;INSTALLED_APPS = [&#10;    ...&#10;    'rest_framework',&#10;    'transcription',&#10;]&#10;```" />
+    <list default="true" id="7d6ed9ca-d572-43c3-9d0a-981a847a1a3d" name="Changes" comment="feat: Implement audio-to-text transcription API using OpenAI Whisper&#10;&#10;- Set up a Django project and created a new app called &quot;transcription&quot;&#10;- Installed required dependencies: Django, Django REST Framework, and OpenAI Whisper&#10;- Created a serializer (`AudioFileSerializer`) to handle audio file uploads&#10;- Implemented an API view (`AudioToTextView`) to handle POST requests for audio-to-text transcription&#10;  - Accepts a WAV audio file as input&#10;  - Reads the audio file using the `soundfile` library and converts it to a NumPy array&#10;  - Loads the OpenAI Whisper model during server initialization to avoid loading on every request&#10;  - Transcribes the audio using the Whisper model with the specified language (Portuguese)&#10;  - Returns the transcription result as a JSON response&#10;- Defined a URL pattern for the audio-to-text endpoint (`/api/audio_to_text/`)&#10;- Created a test script (`test_api.py`) to run the Django server and test the API endpoint&#10;  - Starts the Django server in a separate process&#10;  - Sends a POST request to the API endpoint with a sample WAV file&#10;  - Prints the transcription result and confidence score if the request is successful&#10;  - Terminates the Django server process after the test&#10;- Resolved issues related to audio data format and language support&#10;  - Converted audio data to the appropriate dtype (float32) to match the expected format&#10;  - Specified the language as &quot;pt&quot; (Portuguese) in the `transcribe` function">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -25,7 +37,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "main"
   }
 }]]></component>
   <component name="RunManager">
@@ -84,13 +96,66 @@
       <option name="project" value="LOCAL" />
       <updated>1712525362627</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Update the `settings.py` file in your project directory to &#10;include the `rest_framework` and `transcription` apps:&#10;&#10;```python&#10;INSTALLED_APPS = [&#10;    ...&#10;    'rest_framework',&#10;    'transcription',&#10;]&#10;```">
+      <option name="closed" value="true" />
+      <created>1712525382367</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712525382367</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Create a new file `serializers.py` in the `transcription` &#10;app directory with the following content:&#10;&#10;```python&#10;from rest_framework import serializers&#10;&#10;&#10;class AudioFileSerializer(serializers.Serializer):&#10;    audio_file = serializers.FileField()&#10;```">
+      <option name="closed" value="true" />
+      <created>1712525436064</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712525436064</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update the `views.py` file in the `transcription` app directory:&#10;&#10;&#10;```python&#10;from rest_framework.views import APIView&#10;from rest_framework.response import Response&#10;from rest_framework import status&#10;from .serializers import AudioFileSerializer&#10;import whisper&#10;&#10;&#10;class AudioToTextView(APIView):&#10;    def post(self, request, format=None):&#10;        serializer = AudioFileSerializer(data=request.data)&#10;        if serializer.is_valid():&#10;            audio_file = serializer.validated_data['audio_file']&#10;            model = whisper.load_model(&quot;base&quot;)&#10;            result = model.transcribe(audio_file)&#10;            return Response(result, status=status.HTTP_200_OK)&#10;        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)&#10;```">
+      <option name="closed" value="true" />
+      <created>1712525523135</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712525523135</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Completing sample.wav transcription">
+      <option name="closed" value="true" />
+      <created>1712540964993</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712540964993</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Completing sample.wav transcription">
+      <option name="closed" value="true" />
+      <created>1712541182403</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1712541182403</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: Implement audio-to-text transcription API using OpenAI Whisper&#10;&#10;- Set up a Django project and created a new app called &quot;transcription&quot;&#10;- Installed required dependencies: Django, Django REST Framework, and OpenAI Whisper&#10;- Created a serializer (`AudioFileSerializer`) to handle audio file uploads&#10;- Implemented an API view (`AudioToTextView`) to handle POST requests for audio-to-text transcription&#10;  - Accepts a WAV audio file as input&#10;  - Reads the audio file using the `soundfile` library and converts it to a NumPy array&#10;  - Loads the OpenAI Whisper model during server initialization to avoid loading on every request&#10;  - Transcribes the audio using the Whisper model with the specified language (Portuguese)&#10;  - Returns the transcription result as a JSON response&#10;- Defined a URL pattern for the audio-to-text endpoint (`/api/audio_to_text/`)&#10;- Created a test script (`test_api.py`) to run the Django server and test the API endpoint&#10;  - Starts the Django server in a separate process&#10;  - Sends a POST request to the API endpoint with a sample WAV file&#10;  - Prints the transcription result and confidence score if the request is successful&#10;  - Terminates the Django server process after the test&#10;- Resolved issues related to audio data format and language support&#10;  - Converted audio data to the appropriate dtype (float32) to match the expected format&#10;  - Specified the language as &quot;pt&quot; (Portuguese) in the `transcribe` function">
+      <option name="closed" value="true" />
+      <created>1712541203120</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1712541203120</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Set up a new Django project and app:&#10;```bash&#10;pip install django djangorestframework openai-whisper&#10;django-admin startproject whisper_api&#10;cd whisper_api&#10;python manage.py startapp transcription&#10;```" />
     <MESSAGE value="Update the `settings.py` file in your project directory to &#10;include the `rest_framework` and `transcription` apps:&#10;&#10;```python&#10;INSTALLED_APPS = [&#10;    ...&#10;    'rest_framework',&#10;    'transcription',&#10;]&#10;```" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update the `settings.py` file in your project directory to &#10;include the `rest_framework` and `transcription` apps:&#10;&#10;```python&#10;INSTALLED_APPS = [&#10;    ...&#10;    'rest_framework',&#10;    'transcription',&#10;]&#10;```" />
+    <MESSAGE value="Create a new file `serializers.py` in the `transcription` &#10;app directory with the following content:&#10;&#10;```python&#10;from rest_framework import serializers&#10;&#10;&#10;class AudioFileSerializer(serializers.Serializer):&#10;    audio_file = serializers.FileField()&#10;```" />
+    <MESSAGE value="Update the `views.py` file in the `transcription` app directory:&#10;&#10;&#10;```python&#10;from rest_framework.views import APIView&#10;from rest_framework.response import Response&#10;from rest_framework import status&#10;from .serializers import AudioFileSerializer&#10;import whisper&#10;&#10;&#10;class AudioToTextView(APIView):&#10;    def post(self, request, format=None):&#10;        serializer = AudioFileSerializer(data=request.data)&#10;        if serializer.is_valid():&#10;            audio_file = serializer.validated_data['audio_file']&#10;            model = whisper.load_model(&quot;base&quot;)&#10;            result = model.transcribe(audio_file)&#10;            return Response(result, status=status.HTTP_200_OK)&#10;        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)&#10;```" />
+    <MESSAGE value="Implement audio-to-text transcription API using OpenAI Whisper&#10;&#10;- Set up a Django project and created a new app called &quot;transcription&quot;&#10;- Installed required dependencies: Django, Django REST Framework, and OpenAI Whisper&#10;- Created a serializer (`AudioFileSerializer`) to handle audio file uploads&#10;- Implemented an API view (`AudioToTextView`) to handle POST requests for audio-to-text transcription&#10;  - Accepts a WAV audio file as input&#10;  - Reads the audio file using the `soundfile` library and converts it to a NumPy array&#10;  - Loads the OpenAI Whisper model during server initialization to avoid loading on every request&#10;  - Transcribes the audio using the Whisper model with the specified language (Portuguese)&#10;  - Returns the transcription result as a JSON response&#10;- Defined a URL pattern for the audio-to-text endpoint (`/api/audio_to_text/`)&#10;- Created a test script (`test_api.py`) to run the Django server and test the API endpoint&#10;  - Starts the Django server in a separate process&#10;  - Sends a POST request to the API endpoint with a sample WAV file&#10;  - Prints the transcription result and confidence score if the request is successful&#10;  - Terminates the Django server process after the test&#10;- Resolved issues related to audio data format and language support&#10;  - Converted audio data to the appropriate dtype (float32) to match the expected format&#10;  - Specified the language as &quot;pt&quot; (Portuguese) in the `transcribe` function" />
+    <MESSAGE value="Completing sample.wav transcription" />
+    <MESSAGE value="feat: Implement audio-to-text transcription API using OpenAI Whisper&#10;&#10;- Set up a Django project and created a new app called &quot;transcription&quot;&#10;- Installed required dependencies: Django, Django REST Framework, and OpenAI Whisper&#10;- Created a serializer (`AudioFileSerializer`) to handle audio file uploads&#10;- Implemented an API view (`AudioToTextView`) to handle POST requests for audio-to-text transcription&#10;  - Accepts a WAV audio file as input&#10;  - Reads the audio file using the `soundfile` library and converts it to a NumPy array&#10;  - Loads the OpenAI Whisper model during server initialization to avoid loading on every request&#10;  - Transcribes the audio using the Whisper model with the specified language (Portuguese)&#10;  - Returns the transcription result as a JSON response&#10;- Defined a URL pattern for the audio-to-text endpoint (`/api/audio_to_text/`)&#10;- Created a test script (`test_api.py`) to run the Django server and test the API endpoint&#10;  - Starts the Django server in a separate process&#10;  - Sends a POST request to the API endpoint with a sample WAV file&#10;  - Prints the transcription result and confidence score if the request is successful&#10;  - Terminates the Django server process after the test&#10;- Resolved issues related to audio data format and language support&#10;  - Converted audio data to the appropriate dtype (float32) to match the expected format&#10;  - Specified the language as &quot;pt&quot; (Portuguese) in the `transcribe` function" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Implement audio-to-text transcription API using OpenAI Whisper&#10;&#10;- Set up a Django project and created a new app called &quot;transcription&quot;&#10;- Installed required dependencies: Django, Django REST Framework, and OpenAI Whisper&#10;- Created a serializer (`AudioFileSerializer`) to handle audio file uploads&#10;- Implemented an API view (`AudioToTextView`) to handle POST requests for audio-to-text transcription&#10;  - Accepts a WAV audio file as input&#10;  - Reads the audio file using the `soundfile` library and converts it to a NumPy array&#10;  - Loads the OpenAI Whisper model during server initialization to avoid loading on every request&#10;  - Transcribes the audio using the Whisper model with the specified language (Portuguese)&#10;  - Returns the transcription result as a JSON response&#10;- Defined a URL pattern for the audio-to-text endpoint (`/api/audio_to_text/`)&#10;- Created a test script (`test_api.py`) to run the Django server and test the API endpoint&#10;  - Starts the Django server in a separate process&#10;  - Sends a POST request to the API endpoint with a sample WAV file&#10;  - Prints the transcription result and confidence score if the request is successful&#10;  - Terminates the Django server process after the test&#10;- Resolved issues related to audio data format and language support&#10;  - Converted audio data to the appropriate dtype (float32) to match the expected format&#10;  - Specified the language as &quot;pt&quot; (Portuguese) in the `transcribe` function" />
   </component>
 </project>
