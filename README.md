@@ -20,12 +20,12 @@ This project implements a simple API for audio-to-text transcription using the O
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/audio-to-text-api.git
+   git clone https://github.com/racoci/whisper_api.git
    ```
 
 2. Navigate to the project directory:
    ```
-   cd audio-to-text-api
+   cd whisper_api
    ```
 
 3. Create a virtual environment (optional but recommended):
