@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d6ed9ca-d572-43c3-9d0a-981a847a1a3d" name="Changes" comment="Implement audio-to-text transcription API using OpenAI Whisper&#10;&#10;- Set up a Django project and created a new app called &quot;transcription&quot;&#10;- Installed required dependencies: Django, Django REST Framework, and OpenAI Whisper&#10;- Created a serializer (`AudioFileSerializer`) to handle audio file uploads&#10;- Implemented an API view (`AudioToTextView`) to handle POST requests for audio-to-text transcription&#10;  - Accepts a WAV audio file as input&#10;  - Reads the audio file using the `soundfile` library and converts it to a NumPy array&#10;  - Loads the OpenAI Whisper model during server initialization to avoid loading on every request&#10;  - Transcribes the audio using the Whisper model with the specified language (Portuguese)&#10;  - Returns the transcription result as a JSON response&#10;- Defined a URL pattern for the audio-to-text endpoint (`/api/audio_to_text/`)&#10;- Created a test script (`test_api.py`) to run the Django server and test the API endpoint&#10;  - Starts the Django server in a separate process&#10;  - Sends a POST request to the API endpoint with a sample WAV file&#10;  - Prints the transcription result and confidence score if the request is successful&#10;  - Terminates the Django server process after the test&#10;- Resolved issues related to audio data format and language support&#10;  - Converted audio data to the appropriate dtype (float32) to match the expected format&#10;  - Specified the language as &quot;pt&quot; (Portuguese) in the `transcribe` function">
+    <list default="true" id="7d6ed9ca-d572-43c3-9d0a-981a847a1a3d" name="Changes" comment="Create setup.py">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whisper_api/transcription/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/whisper_api/transcription/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/whisper_api/transcription/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/whisper_api/transcription/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,21 +25,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "racoci"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;racoci&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/racoci/whisper_api.git",
-    "accountId": "d1e0e717-832e-465f-bab0-734c0a6a3bac"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/racoci/whisper_api.git&quot;,
+    &quot;accountId&quot;: &quot;d1e0e717-832e-465f-bab0-734c0a6a3bac&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2en0VC2raMmnn6skr7MxjlLdPp9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -49,6 +51,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main"
   }
@@ -165,7 +168,23 @@
       <option name="project" value="LOCAL" />
       <updated>1712541552999</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update README.md with correct names">
+      <option name="closed" value="true" />
+      <created>1712541911406</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1712541911406</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Create setup.py">
+      <option name="closed" value="true" />
+      <created>1712542103482</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712542103482</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -178,6 +197,8 @@
     <MESSAGE value="A" />
     <MESSAGE value="feat: Implement audio-to-text transcription API using OpenAI Whisper&#10;&#10;- Set up a Django project and created a new app called &quot;transcription&quot;&#10;- Installed required dependencies: Django, Django REST Framework, and OpenAI Whisper&#10;- Created a serializer (`AudioFileSerializer`) to handle audio file uploads&#10;- Implemented an API view (`AudioToTextView`) to handle POST requests for audio-to-text transcription&#10;  - Accepts a WAV audio file as input&#10;  - Reads the audio file using the `soundfile` library and converts it to a NumPy array&#10;  - Loads the OpenAI Whisper model during server initialization to avoid loading on every request&#10;  - Transcribes the audio using the Whisper model with the specified language (Portuguese)&#10;  - Returns the transcription result as a JSON response&#10;- Defined a URL pattern for the audio-to-text endpoint (`/api/audio_to_text/`)&#10;- Created a test script (`test_api.py`) to run the Django server and test the API endpoint&#10;  - Starts the Django server in a separate process&#10;  - Sends a POST request to the API endpoint with a sample WAV file&#10;  - Prints the transcription result and confidence score if the request is successful&#10;  - Terminates the Django server process after the test&#10;- Resolved issues related to audio data format and language support&#10;  - Converted audio data to the appropriate dtype (float32) to match the expected format&#10;  - Specified the language as &quot;pt&quot; (Portuguese) in the `transcribe` function" />
     <MESSAGE value="Implement audio-to-text transcription API using OpenAI Whisper&#10;&#10;- Set up a Django project and created a new app called &quot;transcription&quot;&#10;- Installed required dependencies: Django, Django REST Framework, and OpenAI Whisper&#10;- Created a serializer (`AudioFileSerializer`) to handle audio file uploads&#10;- Implemented an API view (`AudioToTextView`) to handle POST requests for audio-to-text transcription&#10;  - Accepts a WAV audio file as input&#10;  - Reads the audio file using the `soundfile` library and converts it to a NumPy array&#10;  - Loads the OpenAI Whisper model during server initialization to avoid loading on every request&#10;  - Transcribes the audio using the Whisper model with the specified language (Portuguese)&#10;  - Returns the transcription result as a JSON response&#10;- Defined a URL pattern for the audio-to-text endpoint (`/api/audio_to_text/`)&#10;- Created a test script (`test_api.py`) to run the Django server and test the API endpoint&#10;  - Starts the Django server in a separate process&#10;  - Sends a POST request to the API endpoint with a sample WAV file&#10;  - Prints the transcription result and confidence score if the request is successful&#10;  - Terminates the Django server process after the test&#10;- Resolved issues related to audio data format and language support&#10;  - Converted audio data to the appropriate dtype (float32) to match the expected format&#10;  - Specified the language as &quot;pt&quot; (Portuguese) in the `transcribe` function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement audio-to-text transcription API using OpenAI Whisper&#10;&#10;- Set up a Django project and created a new app called &quot;transcription&quot;&#10;- Installed required dependencies: Django, Django REST Framework, and OpenAI Whisper&#10;- Created a serializer (`AudioFileSerializer`) to handle audio file uploads&#10;- Implemented an API view (`AudioToTextView`) to handle POST requests for audio-to-text transcription&#10;  - Accepts a WAV audio file as input&#10;  - Reads the audio file using the `soundfile` library and converts it to a NumPy array&#10;  - Loads the OpenAI Whisper model during server initialization to avoid loading on every request&#10;  - Transcribes the audio using the Whisper model with the specified language (Portuguese)&#10;  - Returns the transcription result as a JSON response&#10;- Defined a URL pattern for the audio-to-text endpoint (`/api/audio_to_text/`)&#10;- Created a test script (`test_api.py`) to run the Django server and test the API endpoint&#10;  - Starts the Django server in a separate process&#10;  - Sends a POST request to the API endpoint with a sample WAV file&#10;  - Prints the transcription result and confidence score if the request is successful&#10;  - Terminates the Django server process after the test&#10;- Resolved issues related to audio data format and language support&#10;  - Converted audio data to the appropriate dtype (float32) to match the expected format&#10;  - Specified the language as &quot;pt&quot; (Portuguese) in the `transcribe` function" />
+    <MESSAGE value="Update README.md with correct names" />
+    <MESSAGE value="Create setup.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create setup.py" />
   </component>
 </project>
